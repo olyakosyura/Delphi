@@ -1,0 +1,52 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+Function f(b,a,x: real; n: integer): real;
+Var
+F0: real;
+i: integer;
+Begin
+Result:= (b - a) / n;
+X:=a;
+F0:=0;
+
+For i:=1 to n do
+begin
+x:=x+result;
+F0:=f0*x*sin(x*x);
+End;
+Result:=result*f0;
+End;
+
+Var
+Eps: real;
+S, Y, x, a,b: real;
+I, n: integer;
+f0: real;
+Begin
+Write('Input a = ');
+Readln(a);
+Write('Input b = ');
+Readln(b);
+Write('Input eps  = ');
+Readln(eps);
+S := 0;
+X := a;
+N := 1;
+While abs(f(a,b,x,n) - f(a,b,x,n*2)) > eps do
+Begin
+N:=n*2;
+S:=f(a,b,x,n);
+End;
+
+
+Writeln('s = ', s);
+Writeln('n = ', n);
+Readln;
+End.
+
+
