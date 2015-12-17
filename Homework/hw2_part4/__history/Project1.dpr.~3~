@@ -25,19 +25,13 @@ x: real;
 begin
 a:=-5;
 b:=0.1;
-
-x := (a+b)/2;
-if fk(a)*fk(b)<0 then
+y:=fk(a);
+x:=fk(b);
+while abs(y)>eps do
   begin
-  repeat
-     y:=(a+b)/2;
-     if fk(a)*fk(y)<=0 then  b:=y
-     else
-     a:=y;
-  until abs(b-a)<eps;
-     x:=(a+b)/2;
+     x:=x-x*y;
   end;
-writeln('x=',x:4:6,' f(x)=', fk(x):4:6);
+writeln(x)
 
 
 end;
