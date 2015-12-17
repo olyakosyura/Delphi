@@ -6,22 +6,12 @@ uses
   SysUtils;
 
 type
-
 Tkv = class
 public
 square, cost: real;
 constructor Create(ns,nc: real);
 procedure Print;
 function CostM: real;
-end;
-ar = array [1..3] of Tkv;
-TSq = class
-public
-count: integer;
-k: ar;
-constructor Create(nc:integer);
-procedure Print;
-procedure CostMin(Min:real);
 end;
 constructor Tkv.Create(ns,nc: real);
 begin
@@ -42,7 +32,21 @@ begin
   result:=cost/square;
 end;
 
+type
+ar = array [1..3] of Tkv;
+type
+TSq = class
+public
+count: integer;
+k: ar;
+constructor Create(nc:integer);
+procedure Print;
+procedure CostMin(Min:real);
+end;
 constructor TSq.Create(nc:integer);
+var
+i: integer;
+s,c: real;
 begin
 count:=nc;
     k[1]:=Tkv.Create(32,2322332);
