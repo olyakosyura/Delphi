@@ -1,0 +1,85 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+Tkv = class
+public
+square, cost: real;
+constructor Create(ns,nc: real);
+procedure Print;
+function CostM: real;
+end;
+constructor Tkv.Create(ns,nc: real);
+begin
+square:=ns;
+cost:=nc;
+end;
+
+procedure Tkv.Print;
+begin
+  Writeln;
+  writeln('Square: ', square,'Cost: ', cost);
+  Writeln;
+end;
+
+
+function Tkv.CostM: real;
+begin
+  result:=cost/square;
+end;
+
+type
+ar = array of Tkv;
+type
+TSq = class
+public
+count: integer;
+k: ar;
+constructor Create(nc:integer);
+procedure Print;
+function CostMin(Min:real): real;
+end;
+constructor TSq.Create(nc:integer);
+var
+i: integer;
+begin
+count:=nc;
+setlength(k,nc);
+for i  := 0 to nc-1 do
+  begin
+    write('Input square: ');
+    readln(k[i].square);
+    write('Input cost: ');
+    readln(k[i].cost);
+  end;
+end;
+
+procedure Tsq.Print;
+var
+  I: Integer;
+begin
+  Writeln;
+  for I := 0 to count-1 do
+    writeln('Square: ', k[i].square, ' Cost: ', k[i].cost );
+  Writeln;
+end;
+
+function TSq.CostMin(Min:real): real;
+begin
+
+end;
+
+var
+T: TSq;
+begin
+T:=T.Create(5);
+T.Print;
+writeln('Perimetr:', T.CostMin(5000):4:6);
+Readln;
+End.
+
+
