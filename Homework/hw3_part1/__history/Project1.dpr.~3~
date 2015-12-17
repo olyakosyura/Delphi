@@ -1,0 +1,42 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+TTrain = class
+public
+Number: integer;
+Km: integer;
+TimeMin: integer;
+constructor Create(NewNumber,NewKM,NewTimeMin: integer);
+procedure Print(Number, Km, TimeMin: integer);
+function Sr(Number,Km,TimeMin: integer): real;
+end;
+constructor TTrain.Create(NewNumber,NewKM,NewTimeMin: integer);
+begin
+  Number:=NewNumber;
+  KM:=NewKm;
+  TimeMin:=NewTimeMin;
+end;
+
+procedure TTrain.Print(Number, Km, TimeMin: integer);
+begin
+
+end;
+
+
+function TTrain.Sr(Number,Km,TimeMin: integer): real;
+begin
+
+
+end;
+
+begin
+
+Readln;
+End.
+
+
