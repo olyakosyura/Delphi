@@ -19,7 +19,7 @@ TSq = class
 public
 count: integer;
 k: ar;
-constructor Create(nc:integer);
+constructor Create(nc:integer; a:ar);
 procedure Print;
 procedure CostMin(Min:real);
 end;
@@ -42,12 +42,12 @@ begin
   result:=cost/square;
 end;
 
-constructor TSq.Create(nc:integer);
+constructor TSq.Create(nc:integer; a:ar);
 begin
 count:=nc;
-    k[1]:=Tkv.Create(32,2322332);
-    k[2]:=tkv.create(88, 72732);
-    k[3]:=tkv.create(20,21212);
+k[1]:=Tkv.Create(32,2322332);
+k[2]:=tkv.create(88,72732);
+k[3]:=tkv.create(20,21212);
 end;
 
 procedure Tsq.Print;
@@ -72,8 +72,9 @@ end;
 
 var
 T: TSq;
+a:ar;
 begin
-T:=T.Create(3);
+T:=T.Create(3,a);
 T.Print;
 T.CostMin(5000);
 Readln;
