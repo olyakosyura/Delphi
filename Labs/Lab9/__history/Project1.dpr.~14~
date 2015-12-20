@@ -45,11 +45,51 @@ begin
     n := n + 1;
     st := st + InttoStr(curr^.number) + ' ';
     curr := curr^.next; // указатель на следующий элемент
+
   end;
 
   if n <> 0
-    then Writeln('Список:' + #13 + st)
-  else Writeln('В списке нет элементов.');
+    then Writeln(st)
+  else Writeln('No elements in list');
+end;
+
+procedure New_Print_List();
+var
+  curr: TPNumber; // текущий элемент списка
+  n: integer; // длина (кол-во элементов) списка
+  st,temp: string; // строковое представление списка
+begin
+  n := 0;
+  st := '';
+  temp:='';
+  curr := head; // указатель на первый элемент списка
+  while curr <> nil do
+  begin
+    n := n + 1;
+    if curr^.number < 0 then
+    st := st + InttoStr(curr^.number) + ' ';
+    curr := curr^.next; // указатель на следующий элемент
+  end;
+  while curr <> nil do
+  begin
+    n := n + 1;
+    if curr^.number >= 0 then
+    temp := temp + InttoStr(curr^.number) + ' ';
+    curr := curr^.next; // указатель на следующий элемент
+  end;
+  while length(temp)>0 do
+    if temp[i]=' ' then
+    begin
+      st:=st+Copy(temp, 0, i);
+      Delete(temp, 0, i);
+
+    end;
+    
+
+
+  if n <> 0
+    then Writeln(st)
+  else Writeln('No elements in list');
 end;
 
 begin
@@ -63,6 +103,7 @@ begin
  end;
 
   Print_List();
+  New_Print_list();
 
 
 

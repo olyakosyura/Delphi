@@ -56,7 +56,7 @@ end;
 procedure New_Print_List();
 var
   curr: TPNumber; // текущий элемент списка
-  n,i,nk: integer; // длина (кол-во элементов) списка
+  n: integer; // длина (кол-во элементов) списка
   st,temp: string; // строковое представление списка
 begin
   n := 0;
@@ -69,24 +69,18 @@ begin
     if curr^.number < 0 then
     st := st + InttoStr(curr^.number) + ' '
     else
-    begin
      temp := temp + InttoStr(curr^.number) + ' ';
-     nk:=nk+1;
-    end;
     curr := curr^.next; // указатель на следующий элемент
   end;
 
-  i:=0;
- for i:=length(temp) downto 0 do
- begin
-      if temp[i] = ' ' then
-        begin
-      st:=st+Copy(temp, i, length(temp)-i);
-      Delete(temp, i, length(temp)-i);
-         end;
-   end;
+  while length(temp)>0 do
+    if temp[i]=' ' then
+    begin
+      st:=st+Copy(temp, 0, i);
+      Delete(temp, 0, i);
 
-   st:=st+' '+temp;
+    end;
+    
 
 
   if n <> 0
@@ -104,7 +98,7 @@ begin
  New_Element();
  end;
 
- // Print_List();
+  Print_List();
   New_Print_list();
 
 
