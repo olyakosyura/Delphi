@@ -1,0 +1,22 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+TBook = record
+  Name: string;
+  Autor: string;
+  Year: integer;
+end;
+
+var
+F: file of TBook;
+Temp: Tbook;
+FileName: string;
+begin
+
+
+end.

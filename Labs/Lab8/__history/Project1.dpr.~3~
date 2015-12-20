@@ -1,0 +1,40 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+TBook = record
+  Name: string[50];
+  Autor: string[50];
+  Year: integer;
+end;
+
+var
+F: file of TBook;
+Temp: Tbook;
+FileName, NewFile: string;
+FText: TextFile;
+I: integer;
+
+begin
+FileName:='input.dat';
+NewFile:='output.txt';
+Assignfile(F,FileName);
+Assignfile(FText,NewFile);
+Reset(F);
+Rewrite(FText);
+for I := 1 to 30 do
+  begin
+    readln(temp.Name);
+    readln(temp.Autor);
+    readln(temp.Year);
+    write(f,temp);
+  end;
+  closefile(f);
+  readln;
+
+
+end.

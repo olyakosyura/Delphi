@@ -1,0 +1,54 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+TBook = record
+  Name: string[40];
+  Author: string[20];
+  Year: integer;
+end;
+
+var
+F: file of TBook;
+Temp: Tbook;
+FileName, NewFile: string;
+G: TextFile;
+I: integer;
+
+begin
+FileName:='input.dat';
+NewFile:='output.txt';
+Assignfile(F,FileName);
+Assignfile(G,NewFile);
+Reset(F);
+Rewrite(G);
+
+Writeln('Old File:');
+for I := 1 to filesize(F) do
+  begin
+   read(f,temp);
+   writeln(temp.Name:40, temp.Author:20, temp.Year:10);
+  end;
+
+
+Writeln('New File(output.txt):');
+
+for I := FileSize(F)-1 downto 0 do
+  begin
+   Seek(F,i);
+   read(f,temp);
+   writeLN(G, temp.Name:40, temp.Author:20, temp.Year:10);
+   writeln(temp.Name:40, temp.Author:20, temp.Year:10);
+
+  end;
+
+  closefile(f);
+  closefile(G);
+  readln;
+
+
+end.
