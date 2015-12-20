@@ -45,32 +45,53 @@ begin
     n := n + 1;
     st := st + InttoStr(curr^.number) + ' ';
     curr := curr^.next; // указатель на следующий элемент
+
   end;
 
   if n <> 0
-    then Writeln('Список:' + #13 + st)
-  else Writeln('В списке нет элементов.');
+    then Writeln(st)
+  else Writeln('No elements in list');
 end;
 
 procedure New_Print_List();
 var
   curr: TPNumber; // текущий элемент списка
-  n: integer; // длина (кол-во элементов) списка
-  st: string; // строковое представление списка
+  n,i,nk: integer; // длина (кол-во элементов) списка
+  st,temp: string; // строковое представление списка
 begin
   n := 0;
   st := '';
+  temp:='';
   curr := head; // указатель на первый элемент списка
   while curr <> nil do
   begin
     n := n + 1;
-    st := st + InttoStr(curr^.number) + ' ';
+    if curr^.number < 0 then
+    st := st + InttoStr(curr^.number) + ' '
+    else
+    begin
+     temp := temp + InttoStr(curr^.number) + ' ';
+     nk:=nk+1;
+    end;
     curr := curr^.next; // указатель на следующий элемент
   end;
 
+  i:=0;
+ for i:=length(temp) downto 0 do
+ begin
+      if temp[i] = ' ' then
+        begin
+      st:=st+Copy(temp, i, length(temp)-i);
+      Delete(temp, i, length(temp)-i);
+         end;
+   end;
+
+   st:=st+temp;
+
+
   if n <> 0
-    then Writeln('Список:' + #13 + st)
-  else Writeln('В списке нет элементов.');
+    then Writeln(st)
+  else Writeln('No elements in list');
 end;
 
 begin
@@ -83,7 +104,7 @@ begin
  New_Element();
  end;
 
-  Print_List();
+ // Print_List();
   New_Print_list();
 
 
