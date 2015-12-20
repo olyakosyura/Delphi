@@ -1,0 +1,92 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+  type
+  TPNumber = ^TNumber;
+  TNumber = record
+    number: integer;
+    next: TPNumber; // следующий элемент списка
+  end;
+
+var
+n,i: integer;
+head: TPNumber; // начало (голова) списка
+
+procedure New_Element();
+var
+  curr: TPNumber; // новый элемент списка
+begin
+  new(curr); // выделить память для элемента списка
+  Readln(curr^.number);
+
+   // добавление в начало списка
+  curr^.next := head;
+  head := curr;
+end;
+
+
+// вывести список
+
+procedure Print_List();
+var
+  curr: TPNumber; // текущий элемент списка
+  n: integer; // длина (кол-во элементов) списка
+  st: string; // строковое представление списка
+begin
+  n := 0;
+  st := '';
+  curr := head; // указатель на первый элемент списка
+  while curr <> nil do
+  begin
+    n := n + 1;
+    st := st + InttoStr(curr^.number) + ' ';
+    curr := curr^.next; // указатель на следующий элемент
+  end;
+
+  if n <> 0
+    then Writeln('Список:' + #13 + st)
+  else Writeln('В списке нет элементов.');
+end;
+
+procedure New_Print_List();
+var
+  curr: TPNumber; // текущий элемент списка
+  n: integer; // длина (кол-во элементов) списка
+  st: string; // строковое представление списка
+begin
+  n := 0;
+  st := '';
+  curr := head; // указатель на первый элемент списка
+  while curr <> nil do
+  begin
+    n := n + 1;
+    st := st + InttoStr(curr^.number) + ' ';
+    curr := curr^.next; // указатель на следующий элемент
+  end;
+
+  if n <> 0
+    then Writeln('Список:' + #13 + st)
+  else Writeln('В списке нет элементов.');
+end;
+
+begin
+ Write('Input n = ');
+ readln(n);
+
+ for i:=1 to n do
+ begin
+ write('Input new element of list: ');
+ New_Element();
+ end;
+
+  Print_List();
+  New_Print_list();
+
+
+
+  Readln;
+end.

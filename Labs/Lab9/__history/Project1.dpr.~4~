@@ -1,0 +1,27 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+  type
+  TPNumber = ^TNumber;
+  TNumber = record
+    number: integer;
+    next: TPNumber; // следующий элемент списка
+  end;
+
+var
+n,i: integer;
+head: TPNumber; // начало (голова) списка
+
+
+
+begin
+ Write('Input n = ');
+ readln(n);
+
+
+
+end.
